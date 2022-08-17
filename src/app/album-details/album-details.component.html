@@ -1,0 +1,33 @@
+<div class="container" *ngIf="album">
+    <h1 class="my-3">{{pageTitle}}</h1>
+    <div class="d-flex justify-content-between">
+    <div class="col-md-3">
+    <h2>{{album.title}}</h2>
+    <div class="d-flex justify-content-between">
+        <img class="w300" [src]="album.image" alt="">       
+    </div>
+    <div class="card mt-3 bg-light">
+        <div class="container">
+        <h3 class="mt-3">Info</h3>
+        <p>Artist: {{album.artist.name}}</p>
+        <p>Number of Tracks: {{album.numberOfTracks}}</p>
+        <p>Tracks: </p><ul><li *ngFor="let song of album.tracks">{{song.title}} - {{song.length}}</li></ul>
+        <p>Playtime: {{album.playtime}}</p>
+        <p>Release Year: {{album.releaseYear}}</p>
+        <p>Rating: {{album.rating}}<app-rating [album]="album"></app-rating></p>
+    </div>
+    </div>
+    </div>
+    <div class="album-bio col-md-3">
+        <h3>Album Bio</h3>
+        <p>{{album.bio}}</p>
+    </div>
+</div>
+    <div class="comments">
+        <h2>Comments</h2>
+        <app-comment [album]="album"></app-comment>
+    </div>
+</div>
+<div class="container">
+<button class="bg-danger" mat-button (click)="openDialog()">Delete Album</button>
+</div>

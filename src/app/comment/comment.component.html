@@ -1,0 +1,18 @@
+<div class="main">
+    <div *ngIf="album.comment">
+        <div class="comment-container" *ngFor="let comment of album.comment">
+            <h3>{{comment.author}}</h3>
+            <p>{{comment.content}}</p>
+        </div>
+    </div>
+    <div class="form-container">
+        <form>
+            <h3>Add comment</h3>
+            <p>author:</p>
+            <input type="text" name="author" placeholder="author">
+            <p>comment:</p>
+            <input type="text" name="content" placeholder="content"><br>
+            <input type = "submit" value = "submit">
+        </form>
+    </div>
+</div>

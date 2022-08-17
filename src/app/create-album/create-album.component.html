@@ -1,0 +1,78 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            Create new Album
+        </div>
+
+        <div class="card-body">
+            <form novalidate (ngSubmit)="save()" [formGroup]="albumForm">
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label" for="titleId">Title</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="titleId" type="text" placeholder="Album Title (required)"
+                            formControlName="title"
+                            [ngClass]="{'is-invalid': (albumForm.get('title')?.touched || albumForm.get('title')?.dirty) && !albumForm.valid}" />
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label" for="artistId">Artist</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="artistId" type="text" placeholder="Artist"
+                            formControlName="artist"
+                            [ngClass]="{'is-invalid': (albumForm.get('artist')?.touched || albumForm.get('artist')?.dirty) && !albumForm.valid}" />
+
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label" for="titleId">Bio</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="bioId" type="text" placeholder="Bio" formControlName="bio"
+                            [ngClass]="{'is-invalid': (albumForm.get('bio')?.touched || albumForm.get('bio')?.dirty) && !albumForm.valid}" />
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label" for="imgageId">Image URL</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="imageId" type="text" placeholder="Image URL"
+                            formControlName="image"
+                            [ngClass]="{'is-invalid': (albumForm.get('image')?.touched || albumForm.get('image')?.dirty) && !albumForm.valid}" />
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-md-2 col-form-label" for="releaseYearId">Release Year</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="releaseYearId" type="number" placeholder="Release Year"
+                            formControlName="releaseYear"
+                            [ngClass]="{'is-invalid': (albumForm.get('releaseYear')?.touched || albumForm.get('releaseYear')?.dirty) && !albumForm.valid}" />
+                    </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <ng-container formArrayName="tracks">
+                        <div class="col-md-8" *ngFor="let track of tracks.controls; let i = index">
+                            <div [formGroupName]="i">
+                                <label for="title">Track Title</label>
+                                <input formControlName="title" /><br>
+                                <label for="length">Track Length</label>
+                                <input formControlName="length" />
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <button class="btn btn-success mt-3 col-md-2" type="button" (click)="addTrack()">+ Add another
+                    track</button>
+
+                <div class="form-group row mb-2">
+                    <div class="offset-md-2 col-md-4">
+                        <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+                            [title]="albumForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                            [disabled]="!albumForm.valid">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

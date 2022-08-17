@@ -1,0 +1,21 @@
+<div class="" *ngIf="albums">
+  <div class="col-md-6">
+  <div class="my-3 mx-3 input-group">
+    <div class="">
+      <span class="input-group-text"><mat-icon>search</mat-icon></span>
+    </div>
+  <input class="form-control col-md-" type="text" [(ngModel)]='listFilter'/>
+  </div>
+</div>
+<div class="d-flex flex-row flex-wrap mx-4">
+    <div *ngFor="let album of filteredAlbums">
+        <div class="card" (click)="goTo(album)">
+              <div><img class="picw100px" [src]="album.image" alt="Album Image"></div>
+              <div class="container">
+                <h4><b>{{album.title}}</b></h4>
+                <p>{{album.artist.name}}</p>
+              </div>
+          </div>       
+    </div>
+  </div>
+</div>

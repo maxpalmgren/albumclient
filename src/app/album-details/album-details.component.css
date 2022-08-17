@@ -1,0 +1,43 @@
+.flex{
+    display: flex;
+    flex-direction: row;
+    gap: 500px
+}
+
+.container{
+    margin-left: 20px;
+}
+
+.album-bio{
+    background-color: rgb(223, 223, 223);
+    padding: 20px;
+    min-width: 500px;
+    max-width: 500px;
+}
+
+.album-info{
+    background-color: aquamarine;
+    margin-top: 10px;
+    padding: 20px;
+    max-width: 260px;
+}
+
+.comments{
+    background-color: rgb(124, 124, 199);
+}
+
+.w300{
+    width: 300px;
+    height: 300px;
+}
+
+h2{
+    padding: 20px;
+}
+
+.card{
+    width: 400px;
+}
+ul{
+    list-style-type: none;
+}
